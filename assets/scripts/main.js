@@ -82,27 +82,27 @@ async function getRecipes() {
   //            take two parameters - resolve, and reject. These are functions
   //            you can call to either resolve the Promise or Reject it.
   /**************************/
-  return new Promise(async (resolve, reject) => {
+  return new Promise(async(resolve, reject)=> {
     // A4
-    for (const recipe in RECIPE_URLS) {
+    for(const recipe of RECIPE_URLS) {
       // A5
       try {
         // A6
         let response = await fetch(recipe);
         // A7
-        response = await response.json();
+        response = await response.json(); 
         // A8
-        recipes.push(response);
+        recipes.push(response); 
         // A9
-        if (RECIPE_URLS.length == recipes.length) {
-          saveRecipesToStorage(recipes);
-          Promise.resolve(recipes);
+        if(RECIPE_URLS.length == recipes.length) {
+          saveRecipesToStorage(recipes); 
+          Promise.resolve(recipes); 
         }
-      } catch (error) {
+      } catch(error) {
         // A10
         console.error(error);
         // A11
-        Promise.reject(error);
+        Promise.reject(error); 
       }
     }
   });
@@ -135,7 +135,7 @@ async function getRecipes() {
  * saves that string to 'recipes' in localStorage
  * @param {Array<Object>} recipes An array of recipes
  */
-function saveRecipesToStorage(recipes) {
+ function saveRecipesToStorage(recipes) {
   localStorage.setItem('recipes', JSON.stringify(recipes));
 }
 
