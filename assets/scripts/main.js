@@ -49,12 +49,12 @@ function initializeServiceWorker() {
     // B2
     window.addEventListener('load', async (event) => {
       // B3
-      navigator.serviceWorker.register('./sw.js').then((registering) => {
+      navigator.serviceWorker.register('./sw.js').then((registration) => {
         // B4
-        console.log('Service worker was succesfully registered');
+        console.log('Service worker was successfully registered:', registration);
       }, (error) => {
         // B5
-        console.error(`Registration failed with ${error}`);
+        console.error(`Service worker registration failed with ${error}`);
       });
     });
   }
